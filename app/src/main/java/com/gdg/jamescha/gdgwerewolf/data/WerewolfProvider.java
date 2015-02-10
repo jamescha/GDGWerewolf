@@ -133,10 +133,28 @@ public class WerewolfProvider extends ContentProvider{
             }
 
             case RULES: {
+                retCursor = werewolfDbHelper.getReadableDatabase().query(
+                        WerewolfContract.RulesEntry.TABLE_NAME,
+                        projection,
+                        selection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder
+                );
                 break;
             }
 
             case RULES_ID: {
+                retCursor = werewolfDbHelper.getReadableDatabase().query(
+                        WerewolfContract.RulesEntry.TABLE_NAME,
+                        projection,
+                        WerewolfContract.RulesEntry._ID + " = '" + ContentUris.parseId(uri) + "'",
+                        null,
+                        null,
+                        null,
+                        sortOrder
+                );
                 break;
             }
 
