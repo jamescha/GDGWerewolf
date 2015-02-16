@@ -27,7 +27,7 @@ public class WerewolfDbHelper extends SQLiteOpenHelper {
                 CharacterEntry._ID + " INTEGER PRIMARY KEY, " +
                 CharacterEntry.COLUMN_CHARACTER_NAME + " TEXT UNIQUE NOT NULL, " +
                 CharacterEntry.COLUMN_CHARACTER_DESCRIPTION + " TEXT UNIQUE NOT NULL, " +
-                CharacterEntry.COLUMN_CHARACTER_IMG + " TEXT UNIQUE NOT NULL" +
+                CharacterEntry.COLUMN_CHARACTER_IMG + " INTEGER UNIQUE NOT NULL" +
                 " )";
 
         final String SQL_CREATE_RULES_TABLE = "CREATE TABLE " + RulesEntry.TABLE_NAME + " (" +
@@ -42,7 +42,7 @@ public class WerewolfDbHelper extends SQLiteOpenHelper {
                 WhoEntry.COLUMN_WHO_REGION + " TEXT NOT NULL, " +
                 WhoEntry.COLUMN_WHO_CHAPTER + " TEXT NOT NULL, " +
                 WhoEntry.COLUMN_WHO_IMG + " TEXT NOT NULL, " +
-                WhoEntry.COLUMN_WHO_CHARACTER_TYPE + " TEXT NOT NULL, " +
+                WhoEntry.COLUMN_WHO_CHARACTER + " TEXT NOT NULL, " +
                 WhoEntry.COLUMN_WHO_IS_DEAD + " INTEGER NOT NULL" +
                 " )";
 

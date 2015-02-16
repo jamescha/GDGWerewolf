@@ -5,6 +5,8 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
@@ -162,17 +164,68 @@ public class WerewolfProvider extends ContentProvider{
                 throw new UnsupportedOperationException("Unkown uri: " + uri);
         }
 
+        retCursor.setNotificationUri(getContext().getContentResolver(), uri);
         return retCursor;
     }
 
     @Override
     public String getType(Uri uri) {
-        return null;
+        final int match = sUriMatcher.match(uri);
+
+        switch (match) {
+            case CHARACTER:
+                return WerewolfContract.CharacterEntry.CONTENT_TYPE;
+            case CHARACTER_ID:
+                return WerewolfContract.CharacterEntry.CONTENT_ITEM_TYPE;
+            case RULES:
+                return WerewolfContract.RulesEntry.CONTENT_TYPE;
+            case RULES_ID:
+                return WerewolfContract.RulesEntry.CONTENT_ITEM_TYPE;
+            case WHO:
+                return WerewolfContract.WhoEntry.CONTENT_TYPE;
+            case WHO_ID:
+                return WerewolfContract.WhoEntry.CONTENT_ITEM_TYPE;
+            default:
+                throw new UnsupportedOperationException("Unkown uri: " + uri);
+        }
     }
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-        return null;
+        final SQLiteDatabase db = werewolfDbHelper.getWritableDatabase();
+        final int match = sUriMatcher.match(uri);
+        Uri returnUri;
+
+        switch (match) {
+            case CHARACTER: {
+                long _id = db.insert(WerewolfContract.CharacterEntry.TABLE_NAME, null, values);
+                if (_id > 0)
+                    returnUri = WerewolfContract.CharacterEntry.buildCharacterUri(_id);
+                else
+                    throw new SQLException("Failed to insert row into " + uri);
+                break;
+            }
+            case RULES: {
+                long _id = db.insert(WerewolfContract.RulesEntry.TABLE_NAME, null, values);
+                if (_id > 0)
+                    returnUri = WerewolfContract.RulesEntry.buildRuleUri(_id);
+                else
+                    throw new SQLException("Failed to insert row into " + uri);
+                break;
+            }
+            case WHO: {
+                long _id = db.insert(WerewolfContract.WhoEntry.TABLE_NAME, null, values);
+                if (_id > 0)
+                    returnUri = WerewolfContract.WhoEntry.buildWhoUri(_id);
+                else
+                    throw new SQLException("Failed to insert row into " + uri);
+                break;
+            }
+            default:
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
+        }
+        getContext().getContentResolver().notifyChange(uri, null);
+        return returnUri;
     }
 
     @Override
@@ -182,6 +235,87 @@ public class WerewolfProvider extends ContentProvider{
 
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
-        return 0;
+        final SQLiteDatabase db = werewolfDbHelper.getWritableDatabase();
+        final int match = sUriMatcher.match(uri);
+        int rowsUpdated;
+
+        switch (match) {
+            case CHARACTER:
+                rowsUpdated = db.update(WerewolfContract.CharacterEntry.TABLE_NAME, values, selection, selectionArgs);
+                break;
+            case RULES:
+                rowsUpdated = db.update(WerewolfContract.RulesEntry.TABLE_NAME, values, selection, selectionArgs);
+                break;
+            case WHO:
+                rowsUpdated = db.update(WerewolfContract.WhoEntry.TABLE_NAME, values, selection, selectionArgs);
+                break;
+            default:
+                throw new UnsupportedOperationException("Unkown uri: " + uri);
+        }
+        if (rowsUpdated != 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+        return rowsUpdated;
+    }
+
+    @Override
+    public int bulkInsert(Uri uri, ContentValues[] values) {
+        final SQLiteDatabase db = werewolfDbHelper.getWritableDatabase();
+        final int match = sUriMatcher.match(uri);
+        switch (match) {
+            case CHARACTER: {
+                db.beginTransaction();
+                int returnCount = 0;
+                try {
+                    for (ContentValues value: values) {
+                        long _id = db.insert(WerewolfContract.CharacterEntry.TABLE_NAME, null, value);
+                        if (_id != -1) {
+                            returnCount++;
+                        }
+                    }
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+                getContext().getContentResolver().notifyChange(uri, null);
+                return returnCount;
+            }
+            case RULES: {
+                db.beginTransaction();
+                int returnCount = 0;
+                try {
+                    for (ContentValues value: values) {
+                        long _id = db.insert(WerewolfContract.RulesEntry.TABLE_NAME, null, value);
+                        if (_id != -1) {
+                            returnCount++;
+                        }
+                    }
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+                getContext().getContentResolver().notifyChange(uri, null);
+                return returnCount;
+            }
+            case WHO: {
+                int returnCount = 0;
+                try {
+                    for (ContentValues value: values) {
+                        long _id = db.insert(WerewolfContract.WhoEntry.TABLE_NAME, null, value);
+                        if (_id != -1) {
+                            returnCount++;
+                        }
+                    }
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+                getContext().getContentResolver().notifyChange(uri, null);
+                return returnCount;
+            }
+
+            default:
+                return super.bulkInsert(uri, values);
+        }
     }
 }

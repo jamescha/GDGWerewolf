@@ -49,7 +49,7 @@ public class WerewolfContract {
         public static final String COLUMN_CHARACTER_IMG = "character_image";
         public static final String COLUMN_CHARACTER_DESCRIPTION = "character_description";
 
-        public Uri buildCharacterUri (long id) {
+        public static Uri buildCharacterUri (long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
     }
@@ -70,7 +70,7 @@ public class WerewolfContract {
         public static final String COLUMN_RULE_NAME = "rule_name";
         public static final String COLUMN_RULE_DESCRIPTION = "rule_description";
 
-        public Uri buildRuleUri (long id) {
+        public static Uri buildRuleUri (long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
     }
@@ -92,10 +92,10 @@ public class WerewolfContract {
         public static final String COLUMN_WHO_REGION = "who_region";
         public static final String COLUMN_WHO_CHAPTER = "who_chapter";
         public static final String COLUMN_WHO_IMG = "who_image";
-        public static final String COLUMN_WHO_CHARACTER_TYPE = "who_character_type";
+        public static final String COLUMN_WHO_CHARACTER = "who_character";
         public static final String COLUMN_WHO_IS_DEAD = "who_is_dead";
 
-        public Uri buildWhoUri (long id) {
+        public static Uri buildWhoUri (long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
     }
