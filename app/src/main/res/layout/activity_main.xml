@@ -3,6 +3,7 @@
     android:id="@+id/character_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gdg.jamescha.gdgwerewolf.MainActivity"
+    android:name="com.gdg.jamescha.gdgwerewolf.CharacterFragment"
+    tools:context="com.gdg.jamescha.gdgwerewolf.CharacterFragment"
     tools:layout="@android:layout/list_content"
     tools:ignore="MergeRootFrame" />

@@ -7,8 +7,8 @@
     android:gravity="center_vertical">
 
     <FrameLayout
-        android:layout_width="60dp"
-        android:layout_height="wrap_content">
+        android:layout_width="150dp"
+        android:layout_height="150dp">
 
         <ImageView
             android:id="@+id/list_item_icon"
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
-            android:textSize="20sp"/>
+            android:textSize="35sp"/>
 
     </LinearLayout>
 

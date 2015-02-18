@@ -26,7 +26,7 @@ public class WerewolfDbHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_CHARACTER_TABLE = "CREATE TABLE " + CharacterEntry.TABLE_NAME + " (" +
                 CharacterEntry._ID + " INTEGER PRIMARY KEY, " +
                 CharacterEntry.COLUMN_CHARACTER_NAME + " TEXT UNIQUE NOT NULL, " +
-                CharacterEntry.COLUMN_CHARACTER_DESCRIPTION + " TEXT UNIQUE NOT NULL, " +
+                CharacterEntry.COLUMN_CHARACTER_LOGO_IMG + " INTEGER UNIQUE NOT NULL, " +
                 CharacterEntry.COLUMN_CHARACTER_IMG + " INTEGER UNIQUE NOT NULL" +
                 " )";
 

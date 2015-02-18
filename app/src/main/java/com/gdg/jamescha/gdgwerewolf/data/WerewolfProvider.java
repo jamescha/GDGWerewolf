@@ -9,12 +9,15 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.util.Log;
 
 
 /**
  * Created by jamescha on 2/8/15.
  */
 public class WerewolfProvider extends ContentProvider{
+
+    private static final String LOG_TAG = WerewolfProvider.class.getSimpleName();
 
     private static final UriMatcher sUriMatcher= buildUriMatcher();
 
@@ -27,6 +30,8 @@ public class WerewolfProvider extends ContentProvider{
     private static final int CHARACTER_ID = 101;
     private static final int RULES_ID = 201;
     private static final int WHO_ID = 301;
+
+    private static final int CHARACTER_NAME = 102;
 
     private static final SQLiteQueryBuilder sQueryBuilder;
 
@@ -49,6 +54,8 @@ public class WerewolfProvider extends ContentProvider{
         matcher.addURI(authority, WerewolfContract.PATH_RULES + "/#", RULES_ID);
         matcher.addURI(authority, WerewolfContract.PATH_WHO + "/#", WHO_ID);
 
+        matcher.addURI(authority, WerewolfContract.PATH_CHARACTER + "/*", CHARACTER_NAME);
+
         return matcher;
     }
 
@@ -58,17 +65,6 @@ public class WerewolfProvider extends ContentProvider{
     private static final String sWHoSeletion = WerewolfContract.WhoEntry.TABLE_NAME +
             "." + WerewolfContract.WhoEntry.COLUMN_WHO_NAME + " = ? ";
 
-    private Cursor getCharacters (Uri uri, String[] projection, String sortOrder) {
-        return sQueryBuilder.query(werewolfDbHelper.getReadableDatabase(),
-                projection,
-                null,
-                null,
-                null,
-                null,
-                sortOrder);
-    }
-
-   // private getCharacters
 
     @Override
     public boolean onCreate() {
@@ -105,6 +101,25 @@ public class WerewolfProvider extends ContentProvider{
                         null,
                         sortOrder
                 );
+                break;
+            }
+
+            case CHARACTER_NAME: {
+                String characterName = WerewolfContract.CharacterEntry.getCharacterNameFromUri(uri);
+                selectionArgs = new String[]{characterName};
+                retCursor = werewolfDbHelper.getReadableDatabase().query(
+                        WerewolfContract.CharacterEntry.TABLE_NAME,
+                        projection,
+                        sCharacterSelection,
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder
+                );
+
+                String message = new StringBuilder().append("Count: ").append(retCursor.getCount())
+                        .append("  CharacterName: ").append(characterName).toString();
+                Log.d(LOG_TAG, message);
                 break;
             }
 

@@ -6,6 +6,7 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,14 +29,14 @@ public class CharacterFragment extends Fragment implements LoaderCallbacks<Curso
     private static final String[] CHARACTER_COLUMNS = {
             CharacterEntry.TABLE_NAME + "." + CharacterEntry._ID,
             CharacterEntry.COLUMN_CHARACTER_NAME,
-            CharacterEntry.COLUMN_CHARACTER_IMG,
-            CharacterEntry.COLUMN_CHARACTER_DESCRIPTION
+            CharacterEntry.COLUMN_CHARACTER_LOGO_IMG,
+            CharacterEntry.COLUMN_CHARACTER_IMG
     };
 
     public static final int COL_CHARACTER_ID = 0;
     public static final int COL_CHARACTER_NAME = 1;
-    public static final int COL_CHARACTER_IMG = 2;
-    public static final int COL_CHARACTER_DESCRIPTION = 3;
+    public static final int COL_CHARACTER_LOGO_IMG = 2;
+    public static final int COL_CHARACTER_IMG = 3;
 
     public interface Callback {
         public void onItemSelected(String character);
@@ -47,6 +48,7 @@ public class CharacterFragment extends Fragment implements LoaderCallbacks<Curso
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Log.d(LOG_TAG, "Character Fragment Created");
         super.onCreate(savedInstanceState);
     }
 
@@ -114,6 +116,9 @@ public class CharacterFragment extends Fragment implements LoaderCallbacks<Curso
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         mCharacterAdapter.swapCursor(data);
+        if(mPosition != ListView.INVALID_POSITION) {
+            mListView.smoothScrollToPosition(mPosition);
+        }
     }
 
     @Override

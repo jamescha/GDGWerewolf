@@ -46,11 +46,19 @@ public class WerewolfContract {
         public static final String TABLE_NAME = PATH_CHARACTER;
 
         public static final String COLUMN_CHARACTER_NAME = "character_name";
+        public static final String COLUMN_CHARACTER_LOGO_IMG = "character_logo_image";
         public static final String COLUMN_CHARACTER_IMG = "character_image";
-        public static final String COLUMN_CHARACTER_DESCRIPTION = "character_description";
 
         public static Uri buildCharacterUri (long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
+        }
+
+        public static Uri buildCharacterUriWithName (String name) {
+            return CONTENT_URI.buildUpon().appendPath(name).build();
+        }
+
+        public static String getCharacterNameFromUri (Uri uri) {
+            return uri.getPathSegments().get(1);
         }
     }
 

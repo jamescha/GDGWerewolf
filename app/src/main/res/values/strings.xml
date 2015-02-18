@@ -8,5 +8,7 @@
     <string name="title_activity_rules">RulesActivity</string>
     <string name="title_activity_who">WhoActivity</string>
     <string name="title_activity_card">CardActivity</string>
+    <string name="sync_account_type">jamescha.gdg.com</string>
+    <string name="content_authority">com.gdg.jamescha.gdgwerewolf</string>
 
 </resources>
