@@ -46,6 +46,11 @@ public class CharacterFragment extends Fragment implements LoaderCallbacks<Curso
         // Required empty public constructor
     }
 
+    static CharacterFragment init() {
+
+        return new CharacterFragment();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         Log.d(LOG_TAG, "Character Fragment Created");

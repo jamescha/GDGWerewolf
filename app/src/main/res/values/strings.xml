@@ -10,5 +10,16 @@
     <string name="title_activity_card">CardActivity</string>
     <string name="sync_account_type">jamescha.gdg.com</string>
     <string name="content_authority">com.gdg.jamescha.gdgwerewolf</string>
+    <string name="preference_file_key">com.gdg.jamescha.gdgwerewolf.PREFERENCE_FILE_KEY</string>
+    <string name="already_inserted">0</string>
+    <string name="night_rule_1">The game begins with a night phase. It is crucial that all actions by players at night be performed silently, to avoid revealing the identities of the werewolves, hacker, or other roles.
+
+At night, the moderator says, \"Werewolves, open your eyes.\" The players who received werewolf cards should silently open their eyes and recognize each other; the moderator should note who the werewolves are. Once the moderator knows who the wolves are, and has made sure that the wolves know each other, the moderator says, \"Werewolves, pick someone to kill.\" The werewolves should silently agree on one person. Both wolves must agree on one victim. Once the moderator understands who the intended victim is, she says, \"Werewolves, close your eyes.\"
+
+Once the wolves have closed their eyes, the moderator says, \"Hacker, open your eyes.\" The player who received a hacker card should open her eyes. The moderator then says, \"Hacker, pick someone to identify.\" The hacker should then silently indicate one person. When the moderator understands who has been chosen, she silently indicates to the hacker whether that person is a werewolf or not, by giving a thumbs-up signal if the chosen person is indeed a wolf, or a thumbs-down if they are a villager. Once this information has been conveyed, the moderator says, \"Hacker, close your eyes.\"
+
+Again, it is vital that the players remain quiet during these maneuvers. If, for example, a werewolf says, \"Let\'s kill him\" during the night, the other players (who are sitting there with their eyes closed) will realize the werewolf\'s identity. It is a good idea for all players to make some \"white noise\" (tapping feet, \"snoring\", etc.) during the night so that tiny noises made by the necessary movements of the werewolves and hacker will not be heard.
+
+In addition, the moderator should be careful to use gender-neutral pronouns when speaking to the various roles. If, for instance, the moderator says, \"The hacker can now open his eyes and pick someone\", all players will know that the hacker is male.</string>
 
 </resources>

@@ -13,6 +13,8 @@ import static com.gdg.jamescha.gdgwerewolf.data.WerewolfContract.WhoEntry;
  */
 public class WerewolfDbHelper extends SQLiteOpenHelper {
 
+    private final String LOG_TAG = WerewolfDbHelper.class.getSimpleName();
+
     private static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "werewolf.db";
 
@@ -49,6 +51,7 @@ public class WerewolfDbHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_CHARACTER_TABLE);
         db.execSQL(SQL_CREATE_RULES_TABLE);
         db.execSQL(SQL_CREATE_WHO_TABLE);
+
     }
 
     @Override
