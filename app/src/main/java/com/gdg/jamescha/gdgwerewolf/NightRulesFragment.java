@@ -12,14 +12,9 @@ public class NightRulesFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public NightRulesFragment init() {
-        return new NightRulesFragment();
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override

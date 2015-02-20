@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="night_title">Night Rules</string>
+    <string name="night_rules_1">The game begins with a night phase.</string>
+    <string name="night_rules_2">"It is crucial that all actions by players at night be performed silently. </string>
+    <string name="night_rules_3">1. Moderator tells everyone to shut their eyes.</string>
+    <string name="night_rules_4">2. Moderator says, \"Developer Group Organizers, open your eyes.\"</string>
+    <string name="night_rules_5">3. Moderator, and Developer Group Organizers identify each other and close their eyes.</string>
+    <string name="night_rules_6">4. Moderator says, \"Werewolves, open your eyes.\"</string>
+    <string name="night_rules_7">5. The Werewolves silently choose (point) who to attack.</string>
+    <string name="night_rules_8">6. The Moderator keeps note and then the Werewolves shut their eyes.</string>
+    <string name="night_rules_9">7. The Moderator says, \"Spy, open your eyes.\" </string>
+    <string name="night_rules_10">8.  Keep note who it is. Spy closes their eyes.</string>
+    <string name="night_rules_11">9. The Moderator says, \"Hacker, open your eyes.\" </string>
+    <string name="night_rules_12">10. The Hacker choose who to identify.</string>
+    <string name="night_rules_13">11. The Moderator silently signals the identity. Hacker closes eyes.</string>
+    <string name="night_rules_14">12. The Moderator says, \"Spy, open your eyes.\" </string>
+    <string name="night_rules_15">13. The Spy choose who to identify.</string>
+    <string name="night_rules_16">14. The Moderator silently signals the identity. Spy closes eyes.</string>
+    <string name="night_rules_17">15. The Moderator says, \"Everyone open their eyes.\"</string>
+    <string name="night_rules_18">16. Day Starts</string>
+</resources>

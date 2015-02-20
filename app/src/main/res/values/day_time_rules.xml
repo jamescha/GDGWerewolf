@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="day_title">Day Rules</string>
+    <string name="day_rules_0">Script Kiddie?</string>
+    <string name="day_rules_1">1. The Moderator identifies the person the Werewolves attacked.</string>
+    <string name="day_rules_2">2. The person attacked is now out of the game.</string>
+    <string name="day_rules_3">3. If the person killed is a Hacktivist.</string>
+    <string name="day_rules_4">4. The Hacktivist they attack who they think is a Werewolf.</string>
+    <string name="day_rules_5">5. The attack person is out.</string>
+    <string name="day_rules_6">6. Everyone discuses and decide who they think is the Werewolves so they will be lynched.</string>
+    <string name="day_rules_7">7. Someone must be lynched every Day.</string>
+</resources>

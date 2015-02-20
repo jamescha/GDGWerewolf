@@ -12,6 +12,7 @@ public class CardActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card);
+        getSupportActionBar().setTitle("Card Detail");
         if (savedInstanceState == null) {
             String name = getIntent().getStringExtra(NAME_KEY);
 

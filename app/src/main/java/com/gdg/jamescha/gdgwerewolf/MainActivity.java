@@ -20,8 +20,6 @@ public class MainActivity extends ActionBarActivity implements CharacterFragment
     ViewPager mViewPager;
     FragmentPagerAdapter fragmentPagerAdapter;
 
-
-
     private final String alreadyInsertedKey = "INSERTED_KEY";
 
     @Override
@@ -63,6 +61,10 @@ public class MainActivity extends ActionBarActivity implements CharacterFragment
                     return new CharacterFragment();
                 case 1:
                     return new NightRulesFragment();
+                case 2:
+                    return new DayRulesFragment();
+                case 3:
+                    return new WhoFragment();
                 default:
                     return null;
             }
@@ -70,7 +72,7 @@ public class MainActivity extends ActionBarActivity implements CharacterFragment
 
         @Override
         public int getCount() {
-            return 2;
+            return 4;
         }
     }
 }
