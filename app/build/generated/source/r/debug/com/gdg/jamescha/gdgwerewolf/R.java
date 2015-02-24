@@ -1723,7 +1723,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0a0042;
         public static final int action_mode_bar_stub=0x7f0a0041;
         public static final int action_mode_close_button=0x7f0a0034;
-        public static final int action_settings=0x7f0a005c;
+        public static final int action_settings=0x7f0a0060;
         public static final int activity_chooser_view_content=0x7f0a0035;
         public static final int adjust_height=0x7f0a0016;
         public static final int adjust_width=0x7f0a0017;
@@ -1761,9 +1761,13 @@ containing a value of this type.
         public static final int image=0x7f0a0037;
         public static final int listMode=0x7f0a0009;
         public static final int list_item=0x7f0a0039;
-        public static final int list_item_icon=0x7f0a005a;
-        public static final int list_item_name_textview=0x7f0a005b;
+        public static final int list_item_icon=0x7f0a005b;
+        public static final int list_item_name_textview=0x7f0a005c;
+        public static final int list_item_who_character_image=0x7f0a005f;
+        public static final int list_item_who_person_image=0x7f0a005d;
+        public static final int list_item_who_person_name=0x7f0a005e;
         public static final int listview_character=0x7f0a0059;
+        public static final int listview_who=0x7f0a005a;
         public static final int match_parent=0x7f0a002a;
         public static final int middle=0x7f0a0015;
         public static final int monochrome=0x7f0a0031;
@@ -1836,19 +1840,22 @@ containing a value of this type.
         public static final int activity_main=0x7f030018;
         public static final int activity_rules=0x7f030019;
         public static final int activity_who=0x7f03001a;
-        public static final int fragment_card=0x7f03001b;
-        public static final int fragment_character=0x7f03001c;
-        public static final int fragment_day_rules=0x7f03001d;
-        public static final int fragment_night_rules=0x7f03001e;
-        public static final int fragment_who=0x7f03001f;
-        public static final int list_item_character=0x7f030020;
-        public static final int support_simple_spinner_dropdown_item=0x7f030021;
+        public static final int activity_who_detail=0x7f03001b;
+        public static final int fragment_card=0x7f03001c;
+        public static final int fragment_character=0x7f03001d;
+        public static final int fragment_day_rules=0x7f03001e;
+        public static final int fragment_night_rules=0x7f03001f;
+        public static final int fragment_who=0x7f030020;
+        public static final int list_item_character=0x7f030021;
+        public static final int list_item_who=0x7f030022;
+        public static final int support_simple_spinner_dropdown_item=0x7f030023;
     }
     public static final class menu {
         public static final int menu_card=0x7f0e0000;
         public static final int menu_main=0x7f0e0001;
         public static final int menu_rules=0x7f0e0002;
         public static final int menu_who=0x7f0e0003;
+        public static final int menu_who_detial=0x7f0e0004;
     }
     public static final class raw {
         public static final int gtm_analytics=0x7f060000;
@@ -1944,7 +1951,9 @@ containing a value of this type.
         public static final int title_activity_card=0x7f0c0057;
         public static final int title_activity_rules=0x7f0c0058;
         public static final int title_activity_who=0x7f0c0059;
-        public static final int wallet_buy_button_place_holder=0x7f0c005a;
+        public static final int title_activity_who_detial=0x7f0c005a;
+        public static final int wallet_buy_button_place_holder=0x7f0c005b;
+        public static final int who_place_holder=0x7f0c005c;
     }
     public static final class style {
         /**  Customize your theme here. 

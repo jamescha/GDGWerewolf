@@ -32,38 +32,52 @@ public class WerewolfProvider extends ContentProvider{
     private static final int WHO_ID = 301;
 
     private static final int CHARACTER_NAME = 102;
+    private static final int WHO_NAME = 302;
+
+    private static final int WHO_NAME_CHARACTER_NAME = 303;
 
     private static final SQLiteQueryBuilder sQueryBuilder;
 
     static {
-        sQueryBuilder = new SQLiteQueryBuilder();
-        sQueryBuilder.setTables(WerewolfContract.CharacterEntry.TABLE_NAME + ", " +
-                                WerewolfContract.RulesEntry.TABLE_NAME + ", " +
-                                WerewolfContract.WhoEntry.TABLE_NAME);
-    }
+             sQueryBuilder = new SQLiteQueryBuilder();
+             sQueryBuilder.setTables(WerewolfContract.CharacterEntry.TABLE_NAME + ", " +
+                     WerewolfContract.RulesEntry.TABLE_NAME); // + ", " +
+     //                                WerewolfContract.WhoEntry.TABLE_NAME + " INNER JOIN " +
+     //                                WerewolfContract.CharacterEntry.TABLE_NAME + " ON " +
+     //                                WerewolfContract.WhoEntry.TABLE_NAME + "." +
+     //                                WerewolfContract.WhoEntry.COLUMN_WHO_CHARACTER + " = " +
+     //                                WerewolfContract.CharacterEntry.TABLE_NAME + "." +
+     //                                WerewolfContract.CharacterEntry._ID);
+         }
 
     private static UriMatcher buildUriMatcher() {
-        final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
-        final String authority = WerewolfContract.CONTENT_AUTHORITY;
+             final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
+             final String authority = WerewolfContract.CONTENT_AUTHORITY;
 
-        matcher.addURI(authority, WerewolfContract.PATH_CHARACTER, CHARACTER);
-        matcher.addURI(authority, WerewolfContract.PATH_RULES, RULES);
-        matcher.addURI(authority, WerewolfContract.PATH_WHO, WHO);
+             matcher.addURI(authority, WerewolfContract.PATH_CHARACTER, CHARACTER);
+             matcher.addURI(authority, WerewolfContract.PATH_RULES, RULES);
+             matcher.addURI(authority, WerewolfContract.PATH_WHO, WHO);
 
-        matcher.addURI(authority, WerewolfContract.PATH_CHARACTER + "/#", CHARACTER_ID);
-        matcher.addURI(authority, WerewolfContract.PATH_RULES + "/#", RULES_ID);
-        matcher.addURI(authority, WerewolfContract.PATH_WHO + "/#", WHO_ID);
+             matcher.addURI(authority, WerewolfContract.PATH_CHARACTER + "/#", CHARACTER_ID);
+             matcher.addURI(authority, WerewolfContract.PATH_RULES + "/#", RULES_ID);
+             matcher.addURI(authority, WerewolfContract.PATH_WHO + "/#", WHO_ID);
 
-        matcher.addURI(authority, WerewolfContract.PATH_CHARACTER + "/*", CHARACTER_NAME);
+             matcher.addURI(authority, WerewolfContract.PATH_CHARACTER + "/*", CHARACTER_NAME);
+             matcher.addURI(authority, WerewolfContract.PATH_WHO + "/*", WHO_NAME);
+             // matcher.addURI(authority, WerewolfContract.PATH_WHO + "/*/*", WHO_NAME_CHARACTER_NAME);
 
-        return matcher;
-    }
+             return matcher;
+         }
 
     private static final String sCharacterSelection = WerewolfContract.CharacterEntry.TABLE_NAME +
-            "." + WerewolfContract.CharacterEntry.COLUMN_CHARACTER_NAME + " = ? ";
+                 "." + WerewolfContract.CharacterEntry.COLUMN_CHARACTER_NAME + " = ? ";
 
-    private static final String sWHoSeletion = WerewolfContract.WhoEntry.TABLE_NAME +
+    private static final String sWhoSeletion = WerewolfContract.WhoEntry.TABLE_NAME +
             "." + WerewolfContract.WhoEntry.COLUMN_WHO_NAME + " = ? ";
+
+    private static final String sWhoCharacterSelection = WerewolfContract.WhoEntry.TABLE_NAME +
+            "." + WerewolfContract.WhoEntry.COLUMN_WHO_NAME + " = ? AND " +
+            WerewolfContract.CharacterEntry.COLUMN_CHARACTER_NAME + " = ? ";
 
 
     @Override
@@ -149,6 +163,26 @@ public class WerewolfProvider extends ContentProvider{
                 break;
             }
 
+//            case WHO_NAME_CHARACTER_NAME: {
+//                String characterName = WerewolfContract.WhoEntry.getCharacterNameFromUri(uri);
+//                String whoName = WerewolfContract.WhoEntry.getWhoFromUri(uri);
+//                selectionArgs = new String[]{characterName, whoName};
+//                retCursor = werewolfDbHelper.getReadableDatabase().query(
+//                        WerewolfContract.CharacterEntry.TABLE_NAME,
+//                        projection,
+//                        sCharacterSelection,
+//                        selectionArgs,
+//                        null,
+//                        null,
+//                        sortOrder
+//                );
+//
+//                String message = new StringBuilder().append("Count: ").append(retCursor.getCount())
+//                        .append("  CharacterName: ").append(characterName).toString();
+//                Log.d(LOG_TAG, message);
+//                break;
+//            }
+
             case RULES: {
                 retCursor = werewolfDbHelper.getReadableDatabase().query(
                         WerewolfContract.RulesEntry.TABLE_NAME,
@@ -176,7 +210,7 @@ public class WerewolfProvider extends ContentProvider{
             }
 
             default:
-                throw new UnsupportedOperationException("Unkown uri: " + uri);
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
 
         retCursor.setNotificationUri(getContext().getContentResolver(), uri);

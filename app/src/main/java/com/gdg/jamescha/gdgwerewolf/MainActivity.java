@@ -29,13 +29,11 @@ public class MainActivity extends ActionBarActivity implements CharacterFragment
 
         SharedPreferences preference = getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preference.edit();
+
         Bundle bundle = new Bundle();
         bundle.putInt(alreadyInsertedKey, preference.getInt(getString(R.string.already_inserted), 0));
         Log.d(LOG_TAG, "AlreadyInsterted is " + preference.getInt(getString(R.string.already_inserted), 0));
         WerewolfSyncAdapter.initializeSyncAdapter(this);
-        editor.putInt(getString(R.string.already_inserted), 1);
-        editor.commit();
 
         mViewPager = (ViewPager) findViewById(R.id.vpPager);
         fragmentPagerAdapter = new PageAdapter(getSupportFragmentManager());

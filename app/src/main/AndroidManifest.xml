@@ -41,18 +41,19 @@
             android:label="@string/title_activity_card" >
         </activity>
 
-        <service android:name=".sync.WerewolfSyncService"
+        <service
+            android:name=".sync.WerewolfSyncService"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.content.SyncAdapter" />
             </intent-filter>
 
-            <meta-data android:name="android.content.SyncAdapter"
-                android:resource="@xml/syncadapter"/>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter" />
         </service>
-
-        <service android:name=".sync.WerewolfAuthenticatorService">
+        <service android:name=".sync.WerewolfAuthenticatorService" >
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
@@ -62,10 +63,15 @@
         </service>
 
         <provider
-            android:authorities="@string/content_authority"
             android:name=".data.WerewolfProvider"
+            android:authorities="@string/content_authority"
             android:exported="false"
-            android:syncable="true"/>
+            android:syncable="true" />
+
+        <activity
+            android:name=".WhoDetailActivity"
+            android:label="@string/title_activity_who_detial" >
+        </activity>
     </application>
 
 </manifest>

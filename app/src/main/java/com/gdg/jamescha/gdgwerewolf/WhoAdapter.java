@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by jamescha on 2/19/15.
@@ -19,8 +21,15 @@ public class WhoAdapter extends CursorAdapter {
     }
 
     public static class ViewHolder {
-        public ViewHolder (View view) {
+        public final ImageView personImage;
+        public final TextView personName;
+        public final ImageView characterImage;
 
+
+        public ViewHolder (View view) {
+            personImage = (ImageView) view.findViewById(R.id.list_item_who_person_image);
+            personName = (TextView) view.findViewById(R.id.list_item_who_person_name);
+            characterImage = (ImageView) view.findViewById(R.id.list_item_who_character_image);
         }
     }
 
@@ -39,6 +48,11 @@ public class WhoAdapter extends CursorAdapter {
         Log.i(LOG_TAG, "Binding Who View");
         ViewHolder viewHolder = (ViewHolder) view.getTag();
 
+        viewHolder.personImage.setImageResource(cursor.getInt(WhoFragment.COL_WHO_IMG));
 
+        String nameString = cursor.getString(WhoFragment.COL_WHO_NAME);
+        viewHolder.personName.setText(nameString);
+
+        //viewHolder.characterImage.setImageResource(cursor.getInt(WhoFragment.COL_WHO_CHAPTER));
     }
 }

@@ -39,6 +39,7 @@ public class WerewolfSyncAdapter extends AbstractThreadedSyncAdapter {
     public static final int SYNC_INTERNAL = 60 * 180;
     public static final int SYNC_FLEXTIME = SYNC_INTERNAL/3;
     Firebase firebase;
+    SharedPreferences.Editor editor;
 
     public  WerewolfSyncAdapter(Context context, boolean autoInitialize) {
         super(context, autoInitialize);
@@ -51,12 +52,16 @@ public class WerewolfSyncAdapter extends AbstractThreadedSyncAdapter {
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(
                 getContext().getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
+        editor = sharedPreferences.edit();
+
         int alreadyInserted = sharedPreferences.getInt(
                 getContext().getString(R.string.already_inserted), 0);
         Log.d(LOG_TAG, "Already Inserted : " + alreadyInserted);
         if (alreadyInserted == 0) {
             Log.d(LOG_TAG, "Already Installed is False");
             initializeCharacterTable();
+            editor.putInt(getContext().getString(R.string.already_inserted), 1);
+            editor.commit();
         }
 
         Firebase.setAndroidContext(getContext());
@@ -203,5 +208,6 @@ public class WerewolfSyncAdapter extends AbstractThreadedSyncAdapter {
         contentValuesVector.toArray(contentValueses);
         getContext().getContentResolver().bulkInsert(WerewolfContract.CharacterEntry.CONTENT_URI, contentValueses);
 
+        Log.d(LOG_TAG, "Done Adding Characters in DB.");
     }
 }

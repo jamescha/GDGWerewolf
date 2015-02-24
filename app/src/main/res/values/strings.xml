@@ -13,5 +13,8 @@
     <string name="preference_file_key">com.gdg.jamescha.gdgwerewolf.PREFERENCE_FILE_KEY</string>
     <string name="already_inserted">0</string>
     <string name="character_fragment_name">Characters</string>
+    <string name="title_activity_who_detial">Details</string>
+
+    <string name="hello_world">Hello world!</string>
 
 </resources>

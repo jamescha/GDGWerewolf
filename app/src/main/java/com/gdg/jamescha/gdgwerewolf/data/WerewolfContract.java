@@ -34,8 +34,8 @@ public class WerewolfContract {
 
     public static final class CharacterEntry implements BaseColumns {
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
-                                                              .appendPath(PATH_CHARACTER)
-                                                              .build();
+                .appendPath(PATH_CHARACTER)
+                .build();
 
         public static final String CONTENT_TYPE =
                 "vnd.android.cursor.dir/" + CONTENT_URI + "/" + PATH_CHARACTER;
@@ -84,27 +84,43 @@ public class WerewolfContract {
     }
 
     public static final class WhoEntry implements BaseColumns {
-        public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
-                .appendPath(PATH_WHO)
-                .build();
+             public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon()
+                     .appendPath(PATH_WHO)
+                     .build();
 
-        public static final String CONTENT_TYPE =
-                "vnd.android.cursor.dir/" + CONTENT_URI + "/" + PATH_WHO;
+             public static final String CONTENT_TYPE =
+                     "vnd.android.cursor.dir/" + CONTENT_URI + "/" + PATH_WHO;
 
-        public static final String CONTENT_ITEM_TYPE =
-                "vnd.android.cursor.item/" + CONTENT_URI + "/" + PATH_WHO;
+             public static final String CONTENT_ITEM_TYPE =
+                     "vnd.android.cursor.item/" + CONTENT_URI + "/" + PATH_WHO;
 
-        public static final String TABLE_NAME = PATH_WHO;
+             public static final String TABLE_NAME = PATH_WHO;
 
-        public static final String COLUMN_WHO_NAME = "who_name";
-        public static final String COLUMN_WHO_REGION = "who_region";
-        public static final String COLUMN_WHO_CHAPTER = "who_chapter";
-        public static final String COLUMN_WHO_IMG = "who_image";
-        public static final String COLUMN_WHO_CHARACTER = "who_character";
-        public static final String COLUMN_WHO_IS_DEAD = "who_is_dead";
+             public static final String COLUMN_WHO_NAME = "who_name";
+             public static final String COLUMN_WHO_REGION = "who_region";
+             public static final String COLUMN_WHO_CHAPTER = "who_chapter";
+             public static final String COLUMN_WHO_IMG = "who_image";
+             public static final String COLUMN_WHO_CHARACTER = "character_id";
+             public static final String COLUMN_WHO_IS_DEAD = "who_is_dead";
 
-        public static Uri buildWhoUri (long id) {
-            return ContentUris.withAppendedId(CONTENT_URI, id);
-        }
-    }
+             public static Uri buildWhoUri (long id) {
+                 return ContentUris.withAppendedId(CONTENT_URI, id);
+             }
+
+             public static Uri buildUriByWhoName (String name) {
+                 return CONTENT_URI.buildUpon().appendPath(name).build();
+             }
+
+             public static Uri buildUriByWhoNameCharacterName (String whoName, String characterName) {
+                 return CONTENT_URI.buildUpon().appendPath(whoName).appendPath(characterName).build();
+             }
+
+             public static String getWhoFromUri (Uri uri) {
+                 return uri.getPathSegments().get(1);
+             }
+
+             public static  String getCharacterNameFromUri (Uri uri) {
+                 return uri.getPathSegments().get(2);
+             }
+         }
 }
