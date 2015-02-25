@@ -43,13 +43,13 @@ public class WerewolfDbHelper extends SQLiteOpenHelper {
                 WhoEntry.COLUMN_WHO_NAME + " TEXT UNIQUE NOT NULL, " +
                 WhoEntry.COLUMN_WHO_REGION + " TEXT NOT NULL, " +
                 WhoEntry.COLUMN_WHO_CHAPTER + " TEXT NOT NULL, " +
-                WhoEntry.COLUMN_WHO_IMG + " TEXT NOT NULL, " +
-                WhoEntry.COLUMN_WHO_CHARACTER + " INTEGER NOT NULL, " +
+                WhoEntry.COLUMN_WHO_IMG + " TEXT, " +
+                WhoEntry.COLUMN_WHO_CHARACTER + " INTEGER, " +
                 WhoEntry.COLUMN_WHO_IS_DEAD + " INTEGER NOT NULL, " +
 
                 " FOREIGN KEY ("  + WhoEntry.COLUMN_WHO_CHARACTER +
                 ") REFERENCES " + CharacterEntry.TABLE_NAME + " (" +
-                CharacterEntry._ID + "))";
+                CharacterEntry.COLUMN_CHARACTER_LOGO_IMG + "))";
 
         db.execSQL(SQL_CREATE_CHARACTER_TABLE);
         db.execSQL(SQL_CREATE_RULES_TABLE);

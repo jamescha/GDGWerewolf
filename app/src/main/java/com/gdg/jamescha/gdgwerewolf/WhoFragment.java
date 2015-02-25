@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ public class WhoFragment extends Fragment implements LoaderCallbacks<Cursor> {
     public static final String LOG_TAG = WhoFragment.class.getSimpleName();
     private WhoAdapter mWhoAdapter;
     private static final String SELECTED_KEY = "selected_position";
-    private static final int WHO_LOADER = 1;
+    private static final int WHO_LOADER = 0;
     private int mPosition = ListView.INVALID_POSITION;
     private ListView mListView;
 
@@ -52,12 +53,15 @@ public class WhoFragment extends Fragment implements LoaderCallbacks<Cursor> {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Log.d(LOG_TAG, "Who Fragment Created");
         super.onCreate(savedInstanceState);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        Log.d(LOG_TAG, "View Created");
         mWhoAdapter = new WhoAdapter(getActivity(), null, 0);
         View rootView = inflater.inflate(R.layout.fragment_who, container, false);
 
@@ -68,7 +72,7 @@ public class WhoFragment extends Fragment implements LoaderCallbacks<Cursor> {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Cursor cursor = mWhoAdapter.getCursor();
 
-                if(cursor != null && cursor.moveToPosition(mPosition)) {
+                if(cursor != null && cursor.moveToPosition(position)) {
                     ((Callback)getActivity())
                             .onItemSelected(cursor.getString(COL_WHO_NAME));
                 }
@@ -80,11 +84,12 @@ public class WhoFragment extends Fragment implements LoaderCallbacks<Cursor> {
             mPosition = savedInstanceState.getInt(SELECTED_KEY);
         }
 
-        return inflater.inflate(R.layout.fragment_who, container, false);
+        return rootView;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
+        Log.d(LOG_TAG, "Activity Created");
         getLoaderManager().initLoader(WHO_LOADER, null, this);
         super.onActivityCreated(savedInstanceState);
     }
@@ -99,6 +104,7 @@ public class WhoFragment extends Fragment implements LoaderCallbacks<Cursor> {
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        Log.d(LOG_TAG, "Created Loader");
         return new CursorLoader(
                 getActivity(),
                 WhoEntry.CONTENT_URI,
@@ -112,6 +118,7 @@ public class WhoFragment extends Fragment implements LoaderCallbacks<Cursor> {
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         mWhoAdapter.swapCursor(data);
+        Log.d(LOG_TAG, "Load Finished");
         if(mPosition != ListView.INVALID_POSITION) {
             mListView.smoothScrollToPosition(mPosition);
         }

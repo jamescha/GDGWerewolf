@@ -41,13 +41,13 @@ public class WerewolfProvider extends ContentProvider{
     static {
              sQueryBuilder = new SQLiteQueryBuilder();
              sQueryBuilder.setTables(WerewolfContract.CharacterEntry.TABLE_NAME + ", " +
-                     WerewolfContract.RulesEntry.TABLE_NAME); // + ", " +
-     //                                WerewolfContract.WhoEntry.TABLE_NAME + " INNER JOIN " +
-     //                                WerewolfContract.CharacterEntry.TABLE_NAME + " ON " +
-     //                                WerewolfContract.WhoEntry.TABLE_NAME + "." +
-     //                                WerewolfContract.WhoEntry.COLUMN_WHO_CHARACTER + " = " +
-     //                                WerewolfContract.CharacterEntry.TABLE_NAME + "." +
-     //                                WerewolfContract.CharacterEntry._ID);
+                     WerewolfContract.RulesEntry.TABLE_NAME  + ", " +
+                                     WerewolfContract.WhoEntry.TABLE_NAME + " INNER JOIN " +
+                                     WerewolfContract.CharacterEntry.TABLE_NAME + " ON " +
+                                     WerewolfContract.WhoEntry.TABLE_NAME + "." +
+                                     WerewolfContract.WhoEntry.COLUMN_WHO_CHARACTER + " = " +
+                                     WerewolfContract.CharacterEntry.TABLE_NAME + "." +
+                                     WerewolfContract.CharacterEntry._ID);
          }
 
     private static UriMatcher buildUriMatcher() {
@@ -138,6 +138,7 @@ public class WerewolfProvider extends ContentProvider{
             }
 
             case WHO: {
+                Log.d(LOG_TAG, "Who Link");
                 retCursor = werewolfDbHelper.getReadableDatabase().query(
                         WerewolfContract.WhoEntry.TABLE_NAME,
                         projection,
@@ -147,6 +148,9 @@ public class WerewolfProvider extends ContentProvider{
                         null,
                         sortOrder
                 );
+                String message = new StringBuilder().append("Count: ").append(retCursor.getCount())
+                        .toString();
+                Log.d(LOG_TAG, message);
                 break;
             }
 

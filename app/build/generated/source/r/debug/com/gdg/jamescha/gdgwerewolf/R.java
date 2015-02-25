@@ -1723,7 +1723,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0a0042;
         public static final int action_mode_bar_stub=0x7f0a0041;
         public static final int action_mode_close_button=0x7f0a0034;
-        public static final int action_settings=0x7f0a0060;
+        public static final int action_settings=0x7f0a0062;
         public static final int activity_chooser_view_content=0x7f0a0035;
         public static final int adjust_height=0x7f0a0016;
         public static final int adjust_width=0x7f0a0017;
@@ -1761,9 +1761,11 @@ containing a value of this type.
         public static final int image=0x7f0a0037;
         public static final int listMode=0x7f0a0009;
         public static final int list_item=0x7f0a0039;
+        public static final int list_item_chapter=0x7f0a005f;
         public static final int list_item_icon=0x7f0a005b;
         public static final int list_item_name_textview=0x7f0a005c;
-        public static final int list_item_who_character_image=0x7f0a005f;
+        public static final int list_item_region=0x7f0a0060;
+        public static final int list_item_who_character_image=0x7f0a0061;
         public static final int list_item_who_person_image=0x7f0a005d;
         public static final int list_item_who_person_name=0x7f0a005e;
         public static final int listview_character=0x7f0a0059;

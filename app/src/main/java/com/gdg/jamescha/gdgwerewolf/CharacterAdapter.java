@@ -43,7 +43,7 @@ public class CharacterAdapter extends CursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        Log.i(LOG_TAG, "Binding View");
+        Log.i(LOG_TAG, "Binding Character View");
         ViewHolder viewHolder = (ViewHolder) view.getTag();
 
         viewHolder.iconView.setImageResource(cursor.getInt(CharacterFragment.COL_CHARACTER_LOGO_IMG));

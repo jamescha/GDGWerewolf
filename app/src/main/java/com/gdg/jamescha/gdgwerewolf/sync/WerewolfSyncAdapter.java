@@ -87,7 +87,9 @@ public class WerewolfSyncAdapter extends AbstractThreadedSyncAdapter {
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                Integer characterImg =  (Integer) dataSnapshot.child("chracter").getValue();
 
+               // getContext().getContentResolver().update(WerewolfContract.WhoEntry.CONTENT_URI, )
             }
 
             @Override
@@ -209,5 +211,15 @@ public class WerewolfSyncAdapter extends AbstractThreadedSyncAdapter {
         getContext().getContentResolver().bulkInsert(WerewolfContract.CharacterEntry.CONTENT_URI, contentValueses);
 
         Log.d(LOG_TAG, "Done Adding Characters in DB.");
+
+        ContentValues contentValues8 = new ContentValues();
+        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_NAME, "James");
+        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_REGION, "Pacific");
+        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_CHAPTER, "GDG Fresno");
+        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_IS_DEAD, "0");
+        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_CHARACTER, R.drawable.werewolflogo);
+        getContext().getContentResolver().insert(WerewolfContract.WhoEntry.CONTENT_URI, contentValues8);
+
+        Log.d(LOG_TAG, "James Inserted");
     }
 }
