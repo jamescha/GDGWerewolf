@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="pref_region_values">
+        <item>@string/pref_region_pacific</item>
+        <item>@string/pref_region_midwest</item>
+        <item>@string/pref_region_northeast</item>
+        <item>@string/pref_region_mountain</item>
+        <item>@string/pref_region_southern</item>
+    </string-array>
+
+    <string-array name="pref_region_options">
+        <item>@string/pref_region_pacific_label</item>
+        <item>@string/pref_region_midwest_label</item>
+        <item>@string/pref_region_northeast_label</item>
+        <item>@string/pref_region_mountain_label</item>
+        <item>@string/pref_region_southern_label</item>
+    </string-array>
+</resources>

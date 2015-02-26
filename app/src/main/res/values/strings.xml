@@ -12,5 +12,22 @@
     <string name="already_inserted">0</string>
     <string name="character_fragment_name">Characters</string>
     <string name="title_activity_who_detial">Details</string>
+    <string name="title_activity_setting">SettingActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="pref_key_label">Unlock Code</string>
+    <string name="pref_key_key">secret</string>
+    <string name="pref_region_label">Region</string>
+    <string name="pref_region_key">region</string>
+    <string name="pref_region_pacific">pacific</string>
+    <string name="pref_region_southern_label">Southern</string>
+    <string name="pref_region_mountain_label">Mountain</string>
+    <string name="pref_region_northeast_label">North East</string>
+    <string name="pref_region_midwest_label">Mid-West</string>
+    <string name="pref_region_pacific_label">Pacific</string>
+    <string name="pref_region_southern">southern</string>
+    <string name="pref_region_mountain">mountain</string>
+    <string name="pref_region_northeast">northeast</string>
+    <string name="pref_region_midwest">midwest</string>
 
 </resources>
