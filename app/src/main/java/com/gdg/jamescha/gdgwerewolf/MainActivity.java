@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Menu;
 
 import com.gdg.jamescha.gdgwerewolf.sync.WerewolfSyncAdapter;
 
@@ -45,6 +46,12 @@ public class MainActivity extends ActionBarActivity implements CharacterFragment
         Intent intent = new Intent(this, CardActivity.class)
                 .putExtra(CardActivity.NAME_KEY,character);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     public class PageAdapter extends FragmentPagerAdapter {

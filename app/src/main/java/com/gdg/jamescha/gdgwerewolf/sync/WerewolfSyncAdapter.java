@@ -70,7 +70,7 @@ public class WerewolfSyncAdapter extends AbstractThreadedSyncAdapter {
         firebase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                dataSnapshot.getValue();
             }
 
             @Override
