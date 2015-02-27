@@ -13,6 +13,8 @@
     <string name="character_fragment_name">Characters</string>
     <string name="title_activity_who_detial">Details</string>
     <string name="title_activity_setting">SettingActivity</string>
+    <string name="form_remove">Remove</string>
+    <string name="form_save">Save</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="pref_key_label">Unlock Code</string>

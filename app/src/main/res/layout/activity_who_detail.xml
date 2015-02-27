@@ -6,7 +6,53 @@
      android:paddingBottom="@dimen/activity_vertical_margin"
      tools:context="com.gdg.jamescha.gdgwerewolf.WhoDetailActivity">
 
-     <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-         android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Who DAT?"
+        android:id="@+id/textView_WhoName"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
- </RelativeLayout>
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Is Dead"
+        android:id="@+id/switch_IsDead"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/textView_WhoName"
+        android:layout_alignStart="@+id/textView_WhoName"
+        android:layout_alignParentEnd="false"
+        android:checked="false"
+        android:textOn="Yes"
+        android:textOff="No" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner_Role"
+        android:layout_below="@+id/textView_WhoName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="82dp"
+        android:entries="@array/characters"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/form_remove"
+        android:id="@+id/button_Remove"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/form_save"
+        android:id="@+id/button_Save"
+        android:layout_alignBottom="@+id/button_Remove"
+        android:layout_alignRight="@+id/spinner_Role"
+        android:layout_alignEnd="@+id/spinner_Role" />
+</RelativeLayout>

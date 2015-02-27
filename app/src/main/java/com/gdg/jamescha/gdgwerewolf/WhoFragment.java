@@ -1,5 +1,6 @@
 package com.gdg.jamescha.gdgwerewolf;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -73,8 +74,15 @@ public class WhoFragment extends Fragment implements LoaderCallbacks<Cursor> {
                 Cursor cursor = mWhoAdapter.getCursor();
 
                 if(cursor != null && cursor.moveToPosition(position)) {
-                    ((Callback)getActivity())
-                            .onItemSelected(cursor.getString(COL_WHO_NAME));
+
+
+                    Intent intent = new Intent(getActivity(), WhoDetailActivity.class);
+                    intent.putExtra("who_id", cursor.getInt(COL_WHO_ID));
+                    intent.putExtra("who_name", cursor.getString(COL_WHO_NAME));
+                    intent.putExtra("who_dead", cursor.getInt(COL_WHO_IS_DEAD));
+                    intent.putExtra("who_character", cursor.getInt(COL_WHO_CHARACTER));
+
+                    startActivity(intent);
                 }
                 mPosition = position;
             }
@@ -138,15 +146,13 @@ public class WhoFragment extends Fragment implements LoaderCallbacks<Cursor> {
 //        getActivity().getMenuInflater().inflate(R.menu.menu_main, menu);
 //        return true;
 //    }
-//
+////
 //    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
+//    public boolean onOptionsItemSelected() {
 //        int id = item.getItemId();
-//        if (id == R.id.action_settings) {
-//            startActivity(new Intent(this, WhoDetailActivity.class));
-//            return true;
-//        }
+//        Intent intent = new Intent();
+//        intent.put
+//        startActivity(intent);
 //
-//        return super.onOptionsItemSelected(item);
-//    }
+//    }intent
 }
