@@ -27,6 +27,16 @@
         <item>@string/spy</item>
     </string-array>
 
+    <array name="character_image">
+        <item>@drawable/werewolflogo</item>
+        <item>@drawable/hacktivistlogo</item>
+        <item>@drawable/engineerlogo</item>
+        <item>@drawable/devgrouporglogo</item>
+        <item>@drawable/hackerlogo</item>
+        <item>@drawable/scriptkiddielogo</item>
+        <item>@drawable/spylogo</item>
+    </array>
+
     <string-array name="attendees">
         <item>Jingran Wang</item>
         <item>Jonathan Popham</item>

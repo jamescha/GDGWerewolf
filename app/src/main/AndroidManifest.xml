@@ -77,6 +77,10 @@
             android:name=".SettingActivity"
             android:label="@string/title_activity_setting" >
         </activity>
+        <activity
+            android:name=".NonePlayerActivity"
+            android:label="@string/title_activity_none_player" >
+        </activity>
     </application>
 
 </manifest>
