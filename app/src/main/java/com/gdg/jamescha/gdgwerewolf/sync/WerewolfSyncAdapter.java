@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SyncRequest;
 import android.content.SyncResult;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -212,14 +213,31 @@ public class WerewolfSyncAdapter extends AbstractThreadedSyncAdapter {
 
         Log.d(LOG_TAG, "Done Adding Characters in DB.");
 
-        ContentValues contentValues8 = new ContentValues();
-        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_NAME, "James");
-        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_REGION, "Pacific");
-        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_CHAPTER, "GDG Fresno");
-        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_IS_DEAD, "0");
-        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_CHARACTER, R.drawable.werewolflogo);
-        getContext().getContentResolver().insert(WerewolfContract.WhoEntry.CONTENT_URI, contentValues8);
+//        ContentValues contentValues8 = new ContentValues();
+//        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_NAME, "James");
+//        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_REGION, "Pacific");
+//        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_CHAPTER, "GDG Fresno");
+//        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_IS_DEAD, "0");
+//        contentValues8.put(WerewolfContract.WhoEntry.COLUMN_WHO_CHARACTER, R.drawable.werewolflogo);
+//        getContext().getContentResolver().insert(WerewolfContract.WhoEntry.CONTENT_URI, contentValues8);
 
-        Log.d(LOG_TAG, "James Inserted");
+        Resources res = getContext().getResources();
+        String[] attendees = res.getStringArray(R.array.attendees);
+        //Vector<ContentValues> contentValuesVector2 = new Vector<>(attendees.length);
+
+        for(String attendee: attendees) {
+            ContentValues contentValue = new ContentValues();
+            contentValue.put(WerewolfContract.WhoEntry.COLUMN_WHO_NAME, attendee);
+            contentValue.put(WerewolfContract.WhoEntry.COLUMN_WHO_IS_DEAD, "0");
+
+            //contentValuesVector2.add(contentValue);
+            getContext().getContentResolver().insert(WerewolfContract.WhoEntry.CONTENT_URI, contentValue);
+        }
+//        ContentValues[] contentValueses1 = new ContentValues[contentValuesVector2.size()];
+//        contentValuesVector2.toArray(contentValueses1);
+//        getContext().getContentResolver().bulkInsert(WerewolfContract.WhoEntry.CONTENT_URI, contentValueses1);
+
+        Log.d(LOG_TAG, "Done Adding Who in DB.");
+
     }
 }

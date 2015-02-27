@@ -28,7 +28,7 @@ public class WerewolfDbHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_CHARACTER_TABLE = "CREATE TABLE " + CharacterEntry.TABLE_NAME + " (" +
                 CharacterEntry._ID + " INTEGER PRIMARY KEY, " +
                 CharacterEntry.COLUMN_CHARACTER_NAME + " TEXT UNIQUE NOT NULL, " +
-                CharacterEntry.COLUMN_CHARACTER_LOGO_IMG + " INTEGER UNIQUE NOT NULL, " +
+                CharacterEntry.COLUMN_CHARACTER_LOGO_IMG + " INTEGER UNIQUE, " +
                 CharacterEntry.COLUMN_CHARACTER_IMG + " INTEGER UNIQUE NOT NULL" +
                 " )";
 
@@ -41,8 +41,8 @@ public class WerewolfDbHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_WHO_TABLE = "CREATE TABLE " + WhoEntry.TABLE_NAME + " (" +
                 WhoEntry._ID + " INTEGER PRIMARY KEY, " +
                 WhoEntry.COLUMN_WHO_NAME + " TEXT UNIQUE NOT NULL, " +
-                WhoEntry.COLUMN_WHO_REGION + " TEXT NOT NULL, " +
-                WhoEntry.COLUMN_WHO_CHAPTER + " TEXT NOT NULL, " +
+                WhoEntry.COLUMN_WHO_REGION + " TEXT , " +
+                WhoEntry.COLUMN_WHO_CHAPTER + " TEXT , " +
                 WhoEntry.COLUMN_WHO_IMG + " TEXT, " +
                 WhoEntry.COLUMN_WHO_CHARACTER + " INTEGER, " +
                 WhoEntry.COLUMN_WHO_IS_DEAD + " INTEGER NOT NULL, " +

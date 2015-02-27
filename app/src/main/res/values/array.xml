@@ -16,4 +16,104 @@
         <item>@string/pref_region_mountain_label</item>
         <item>@string/pref_region_southern_label</item>
     </string-array>
+
+    <string-array name="attendees">
+        <item>Jingran Wang</item>
+        <item>Jonathan Popham</item>
+        <item>Daniel Parker</item>
+        <item>Katarina Crea</item>
+        <item>Dinesh Ganesan</item>
+        <item>Carlos Rojas</item>
+        <item>David Silva</item>
+        <item>Jim McKeeth</item>
+        <item>Elizabeth Mezias</item>
+        <item>Praveen Aravamudham</item>
+        <item>Steven Max</item>
+        <item>Tom Morris</item>
+        <item>Levi DeHaan</item>
+        <item>Siva Govindarajan</item>
+        <item>Starrie Williamson</item>
+        <item>Joe Dwyer</item>
+        <item>Bill Mote</item>
+        <item>James Kirk</item>
+        <item>Tim Hill</item>
+        <item>Casey Borders</item>
+        <item>Luke Wallace</item>
+        <item>Mark Scheel</item>
+        <item>Don Ward</item>
+        <item>Michael Rosen</item>
+        <item>Mica Simonian</item>
+        <item>Rio Waller</item>
+        <item>Adam Jimerson</item>
+        <item>Kenneth Taylor</item>
+        <item>Nitya Narasimhan</item>
+        <item>Aaron Milam</item>
+        <item>Vince Kennedy</item>
+        <item>Vince Garcia</item>
+        <item>Kyle Paul</item>
+        <item>Ryan T. Ellenberger</item>
+        <item>Paul Santana</item>
+        <item>Robert Allen</item>
+        <item>Rob Becker</item>
+        <item>Tom Connell</item>
+        <item>Cassandra Marshall</item>
+        <item>Jim Hutson</item>
+        <item>Boris Dubois</item>
+        <item>Seth Cottle</item>
+        <item>Chris Turvey</item>
+        <item>Joseph Banta</item>
+        <item>Ben Fortner</item>
+        <item>Dario Laverde</item>
+        <item>Ralph Yozzo</item>
+        <item>Todd Nakamura</item>
+        <item>Brian Sturgill</item>
+        <item>James Duvall</item>
+        <item>Francisco Gutierrez</item>
+        <item>Marcus Gabilheri</item>
+        <item>Corey Latislaw</item>
+        <item>Sheldon McGee</item>
+        <item>Brandy Camacho</item>
+        <item>Luke Dary</item>
+        <item>Oleg Kalugin</item>
+        <item>Jason Adler</item>
+        <item>Arshak Navruzyan</item>
+        <item>Dan Baran</item>
+        <item>Jerrell Mardis</item>
+        <item>Yenchi Lin</item>
+        <item>Jonathan Marinaro</item>
+        <item>Rita Sachdev</item>
+        <item>Nelson Melo</item>
+        <item>Michael Prentice</item>
+        <item>Emily Bamsey</item>
+        <item>Rhonda Hodges</item>
+        <item>Steve Hodges</item>
+        <item>Peter Mooshammer</item>
+        <item>Hong-hoe Kim</item>
+        <item>Jung In Koh</item>
+        <item>Solomon Hsu</item>
+        <item>Niranjan Nagar</item>
+        <item>Dan Stormont</item>
+        <item>Jeff Williams</item>
+        <item>Lloyd Cledwyn</item>
+        <item>Patrick M Fuentes</item>
+        <item>Stefanie Trimble</item>
+        <item>Jessica Olsen</item>
+        <item>Yaniv Talmor</item>
+        <item>Ahsen Baig</item>
+        <item>Chida Sadayappan</item>
+        <item>Panayiotis Varvarezis</item>
+        <item>Sylvia Wandahwa</item>
+        <item>Abraham Williams</item>
+        <item>Alline de Oliveira e Silva</item>
+        <item>Etienne Caron</item>
+        <item>Jeff Schnitzer</item>
+        <item>Joshua Woodward</item>
+        <item>Justin Ribeiro</item>
+        <item>Masashi Katsumata</item>
+        <item>Mike Wolfson</item>
+        <item>Nico Miceli</item>
+        <item>Stephen Fluin</item>
+        <item>E John Feig</item>
+        <item>Jon Stevens</item>
+    </string-array>
 </resources>
