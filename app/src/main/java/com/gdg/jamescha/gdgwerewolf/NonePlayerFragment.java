@@ -122,7 +122,7 @@ public class NonePlayerFragment extends Fragment implements LoaderCallbacks<Curs
                 WHO_COLUMNS,
                 selection,
                 selectionArgs,
-                null
+                WhoEntry.COLUMN_WHO_NAME
         );
     }
 

@@ -123,7 +123,7 @@ public class WhoFragment extends Fragment implements LoaderCallbacks<Cursor> {
                 WHO_COLUMNS,
                 selection,
                 selectionArgs,
-                null
+                WhoEntry.COLUMN_WHO_NAME
         );
     }
 
