@@ -30,7 +30,12 @@
     <string name="pref_region_northeast">northeast</string>
     <string name="pref_region_midwest">midwest</string>
 
-<!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="werewolf">Werewolf</string>
+    <string name="hacktivist">Hacktivist</string>
+    <string name="engineer">Engineer</string>
+    <string name="developergrouporganizer">Developer Group Organizer</string>
+    <string name="hacker">Hacker</string>
+    <string name="scriptkiddie">Script Kiddie</string>
+    <string name="spy">Spy</string>
 
 </resources>

@@ -17,6 +17,16 @@
         <item>@string/pref_region_southern_label</item>
     </string-array>
 
+    <string-array name="characters">
+        <item>@string/werewolf</item>
+        <item>@string/hacktivist</item>
+        <item>@string/engineer</item>
+        <item>@string/developergrouporganizer</item>
+        <item>@string/hacker</item>
+        <item>@string/scriptkiddie</item>
+        <item>@string/spy</item>
+    </string-array>
+
     <string-array name="attendees">
         <item>Jingran Wang</item>
         <item>Jonathan Popham</item>
@@ -116,4 +126,5 @@
         <item>E John Feig</item>
         <item>Jon Stevens</item>
     </string-array>
+
 </resources>
