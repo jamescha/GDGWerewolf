@@ -230,6 +230,7 @@ public class WerewolfSyncAdapter extends AbstractThreadedSyncAdapter {
             contentValue.put(WerewolfContract.WhoEntry.COLUMN_WHO_NAME, attendee);
             contentValue.put(WerewolfContract.WhoEntry.COLUMN_WHO_IS_DEAD, "0");
             contentValue.put(WerewolfContract.WhoEntry.COLUMN_WHO_REGION, "0");
+            contentValue.put(WerewolfContract.WhoEntry.COLUMN_WHO_CHARACTER, R.drawable.engineerlogo);
 
             //contentValuesVector2.add(contentValue);
             getContext().getContentResolver().insert(WerewolfContract.WhoEntry.CONTENT_URI, contentValue);
