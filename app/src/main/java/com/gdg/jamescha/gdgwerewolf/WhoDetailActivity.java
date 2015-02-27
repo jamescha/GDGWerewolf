@@ -1,5 +1,6 @@
 package com.gdg.jamescha.gdgwerewolf;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -45,7 +46,7 @@ public class WhoDetailActivity extends ActionBarActivity {
         spinnerCharacter.setSelection(characters.indexOf(who_character));
 
         final TypedArray characterImages = getResources().obtainTypedArray(R.array.character_image);
-
+        final Activity activityContext = this;
         Button saveButton = (Button)findViewById(R.id.button_Save);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,10 +59,13 @@ public class WhoDetailActivity extends ActionBarActivity {
                 contentValues.put(WerewolfContract.WhoEntry.COLUMN_WHO_CHARACTER, characterImages.getResourceId(spinnerCharacter.getSelectedItemPosition(), 2));
 
                 getContentResolver().update(WerewolfContract.WhoEntry.CONTENT_URI, contentValues, selection, selectionArgs);
+
+                Toast.makeText(activityContext, "Saved!", Toast.LENGTH_LONG).show();
+                finish();
             }
         });
 
-        final Context activityContext = this;
+
         Button removeButton = (Button)findViewById(R.id.button_Remove);
         removeButton.setOnClickListener(new View.OnClickListener(){
             @Override
