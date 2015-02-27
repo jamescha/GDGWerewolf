@@ -1,5 +1,6 @@
 package com.gdg.jamescha.gdgwerewolf;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,16 +16,16 @@ import android.widget.ListView;
 
 import com.gdg.jamescha.gdgwerewolf.data.WerewolfContract.WhoEntry;
 
-public class WhoFragment extends Fragment implements LoaderCallbacks<Cursor> {
+public class NonePlayerFragment extends Fragment implements LoaderCallbacks<Cursor> {
 
-    public static final String LOG_TAG = WhoFragment.class.getSimpleName();
+    public static final String LOG_TAG = NonePlayerFragment.class.getSimpleName();
     private WhoAdapter mWhoAdapter;
     private static final String SELECTED_KEY = "selected_position";
     private static final int WHO_LOADER = 0;
     private int mPosition = ListView.INVALID_POSITION;
     private ListView mListView;
 
-    public WhoFragment() {
+    public NonePlayerFragment() {
         // Required empty public constructor
     }
 
@@ -73,8 +74,14 @@ public class WhoFragment extends Fragment implements LoaderCallbacks<Cursor> {
                 Cursor cursor = mWhoAdapter.getCursor();
 
                 if(cursor != null && cursor.moveToPosition(position)) {
-                    ((Callback)getActivity())
-                            .onItemSelected(cursor.getString(COL_WHO_NAME));
+
+                    String selection = WhoEntry.COLUMN_WHO_NAME + "=?";
+                    String[] selectionArgs = {cursor.getString(COL_WHO_NAME)};
+
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put(WhoEntry.COLUMN_WHO_REGION, "1");
+
+                    getActivity().getContentResolver().update(WhoEntry.CONTENT_URI, contentValues, selection, selectionArgs);
                 }
                 mPosition = position;
             }
@@ -106,8 +113,8 @@ public class WhoFragment extends Fragment implements LoaderCallbacks<Cursor> {
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         Log.d(LOG_TAG, "Created Loader");
 
-        String selection  = WhoEntry.COLUMN_WHO_REGION + "=?";
-        String[] selectionArgs = {"1"};
+        String selection = WhoEntry.COLUMN_WHO_REGION + "=?";
+        String[] selectionArgs = {"0"};
 
         return new CursorLoader(
                 getActivity(),
@@ -132,21 +139,4 @@ public class WhoFragment extends Fragment implements LoaderCallbacks<Cursor> {
     public void onLoaderReset(Loader<Cursor> loader) {
         mWhoAdapter.swapCursor(null);
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getActivity().getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//        if (id == R.id.action_settings) {
-//            startActivity(new Intent(this, WhoDetailActivity.class));
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 }

@@ -303,7 +303,7 @@ public class WerewolfProvider extends ContentProvider{
                 rowsUpdated = db.update(WerewolfContract.WhoEntry.TABLE_NAME, values, selection, selectionArgs);
                 break;
             default:
-                throw new UnsupportedOperationException("Unkown uri: " + uri);
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
         if (rowsUpdated != 0) {
             getContext().getContentResolver().notifyChange(uri, null);

@@ -82,6 +82,8 @@ public class MainActivity extends ActionBarActivity implements CharacterFragment
                     return new DayRulesFragment();
                 case 3:
                     return new WhoFragment();
+                case 4:
+                    return new NonePlayerFragment();
                 default:
                     return null;
             }
@@ -89,7 +91,7 @@ public class MainActivity extends ActionBarActivity implements CharacterFragment
 
         @Override
         public int getCount() {
-            return 4;
+            return 5;
         }
     }
 }
