@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditTextPreference
+  <!--  <EditTextPreference
         android:title="@string/pref_key_label"
         android:key="@string/pref_key_key"
         android:inputType="text"
-        android:singleLine="true"/>
+        android:singleLine="true"/> -->
 
     <ListPreference
         android:title="@string/pref_region_label"

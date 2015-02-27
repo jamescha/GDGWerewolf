@@ -1,13 +1,10 @@
 package com.gdg.jamescha.gdgwerewolf;
 
+import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.gdg.jamescha.gdgwerewolf.data.WerewolfContract;
 import com.gdg.jamescha.gdgwerewolf.sync.WerewolfSyncAdapter;
@@ -22,7 +19,7 @@ public class SettingActivity extends PreferenceActivity implements Preference.On
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.pref_general);
 
-        bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_key)));
+       // bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_key)));
         bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_region_key)));
     }
 
